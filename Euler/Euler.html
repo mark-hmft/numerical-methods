@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Euler Method</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <h1>Euler Method</h1>
+        <div id="input">
+            <h3>Parachutist Problem</h3>
+            <label for="mass">Mass (kg):</label>
+            <input type="number" id="mass" min="0"><br>
+            <label for="dragCoefficient">Drag Coefficient (kg/s):</label>
+            <input type="number" id="dragCoefficient" min="0"><br>
+            <label for="stepSize">Step size (s):</label>
+            <input type="number" id="stepSize" min="0.1"><br>
+            <button id="submit" onclick="Euler(0.1, 0, 2, 0, 68.1, 12.5)">Submit</button><br>
+        </div>
+        <div id="results">
+
+        </div>
+        <script src="./Euler.js"></script>
+    </body>
+</html>
