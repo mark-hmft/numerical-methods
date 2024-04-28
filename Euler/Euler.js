@@ -1,22 +1,32 @@
-let dt = document.getElementById("stepSize").value;
-let m = document.getElementById("mass").value;
-let cd = document.getElementById("dragCoefficient").value;
+document.getElementById("submit").addEventListener("click", Parachustist);
 
-let ti = 0;
-let tf = 2;
-let vi = 0;
-/*
-document.getElementById("submit").addEventListener("click", function() {
+function Parachustist(){
+    let dt = Number(document.getElementById("stepSize").value);
+    let m = Number(document.getElementById("mass").value);
+    let cd = Number(document.getElementById("dragCoefficient").value);
+
+    let ti = 0;
+    let tf = 2;
+    let vi = 0;
+
+    console.log(`Step Size: ${dt.toFixed(2)}`);
+    console.log(`Mass: ${m.toFixed(2)}`);
+    console.log(`Drag Coefficient: ${cd.toFixed(2)}`);
+
     Euler(dt, ti, tf, vi, m, cd);
-});
-*/
+}
+
 function Euler(stepSize, intialTime, finalTime, initialVelocity, mass, dragCoefficient){
     const element = document.getElementById("results");
     const para = document.createElement("p");
 
     console.log(`Step Size: ${stepSize.toFixed(2)}`);
+    console.log(`Initial Time: ${intialTime.toFixed(2)}`);
+    console.log(`Final Time: ${finalTime.toFixed(2)}`);
+    console.log(`Initial Velocity: ${initialVelocity.toFixed(2)}`);
     console.log(`Mass: ${mass.toFixed(2)}`);
     console.log(`Drag Coefficient: ${dragCoefficient.toFixed(2)}`);
+
     let time = intialTime;
     let step = stepSize;
     let velocity = initialVelocity;
@@ -44,7 +54,7 @@ function Euler(stepSize, intialTime, finalTime, initialVelocity, mass, dragCoeff
 
 function velocityDelta(velocity, mass, dragCoefficient){
     const G = 9.81;
-    return G - (dragCoefficient / mass) * velocity;
+    return (G - (dragCoefficient / mass) * velocity);
 }
 
 
